@@ -238,8 +238,6 @@ def main():
 
             print_header("Pushing build tag to git")
             push_to_git()
-
-            shutil.rmtree(BUILD_FOLDER)
         print_green("========== SUCCESSFUL ===========")
     except Exception as e:
         print_red("========== FAILED ===========\n" + str(e))
