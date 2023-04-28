@@ -27,9 +27,15 @@ public class ConfigServiceCommon : IConfigServiceCommon
         return GetEnvironmentVariableOrNull(callerName) ?? defaultValue;
     }
 
-    public string APPLICATION_NAME =>
-        GetEnvironmentVariableOrDefaultValue(
-            $"{System.Reflection.Assembly.GetCallingAssembly().GetName().Name}_{Environment.MachineName}");
+    public string APPLICATION_NAME
+    {
+        get
+        {
+            var assembly = System.Reflection.Assembly.GetEntryAssembly();
+            assembly ??= System.Reflection.Assembly.GetCallingAssembly();
+            return GetEnvironmentVariableOrDefaultValue($"{assembly.GetName().Name}");
+        }
+    }
 
     public string MINIMUM_LOG_LEVEL => GetEnvironmentVariableOrDefaultValue("Information");
 
