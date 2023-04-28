@@ -4,6 +4,17 @@ namespace shared_library.Services.ConfigServiceCommonFolder;
 
 public class ConfigServiceCommon : IConfigServiceCommon
 {
+    public static string GetEnvironmentVariableOrThrow([CallerMemberName] string callerName = "")
+    {
+        var valueFromEnvironmentVariable = GetEnvironmentVariableOrNull(callerName);
+        if (valueFromEnvironmentVariable is null || string.IsNullOrWhiteSpace(valueFromEnvironmentVariable))
+        {
+            throw new Exception($"Failed to get environment variable \"{callerName}\"");
+        }
+
+        return valueFromEnvironmentVariable;
+    }
+
     public static string? GetEnvironmentVariableOrNull([CallerMemberName] string callerName = "")
     {
         var environmentVariable = Environment.GetEnvironmentVariable(callerName);
