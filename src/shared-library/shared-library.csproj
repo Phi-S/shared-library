@@ -5,6 +5,8 @@
         <RootNamespace>shared_library</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <PackageId>phis.shared-library</PackageId>
+        <Authors>phis</Authors>
     </PropertyGroup>
 
     <ItemGroup>

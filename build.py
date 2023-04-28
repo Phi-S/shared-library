@@ -15,7 +15,7 @@ BUILD_FOLDER = os.path.join(PYTHON_FILE_FOLDER, "build")
 
 BUILD_VERSION = "0.0.0"
 
-NUGET_IMAGE_NAME = f"phis.{PROJECT_NAME}"
+NUGET_IMAGE_NAME = "phis.shared-library"
 NUGET_SOURCE = "https://nuget.theaurum.net/v3/index.json"
 NUGET_PASSWORD = ""
 
